@@ -14,14 +14,20 @@ log() {
 # Clear previous log
 echo "===== Run started at $(date '+%Y-%m-%d %H:%M:%S') =====" > "$LOG_FILE"
 
-# Run script1.py
+# Navigate to the Scripts folder
+cd "$(dirname "$0")/Scripts" || {
+    log "❌ Failed to find Scripts folder. Aborting."
+    exit 1
+}
+
+# Run Mapping_datas_pull.py
 log "🔧 Pulling_mapping_datas from HTML file..."
-if python3 Mapping_datas_pull.py 2>&1 | tee -a "$LOG_FILE"; then
+if python3 Mapping_datas_pull.py 2>&1 | tee -a "../$LOG_FILE"; then
     log "✅ Mapping_datas_pull.py completed successfully."
     
-    # Run script2.py only if script1.py was successful
+    # Run Json_mapping.py only if the previous script was successful
     log "🔧 Creating Json mapping file..."
-    if python3 Json_mapping.py 2>&1 | tee -a "$LOG_FILE"; then
+    if python3 Json_mapping.py 2>&1 | tee -a "../$LOG_FILE"; then
         log "✅ Json_mapping.py completed successfully."
         log "🎉 All scripts finished without errors."
     else
