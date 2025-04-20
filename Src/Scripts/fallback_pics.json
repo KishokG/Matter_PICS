@@ -1,0 +1,10 @@
+{
+  "TC-ACT-2.2": ["ACT.S.M.OverlappingEndpointLists"],
+  "TC-DD-1.5": ["!MCORE.DD.PHYSICAL_TAMPERING"],
+  "TC-DD-1.11": ["!MCORE.DD.CTRL_CONCATENATED_QR_CODE_1", "!MCORE.DD.CTRL_CONCATENATED_QR_CODE_2"],
+  "TC-DD-2.1": ["!MCORE.DD.CHIP_DEV"],
+  "TC-LVL-3.1": ["!LVL.S.C04.Rsp"],
+  "TC-LVL-4.1": ["!LVL.S.C05.Rsp"],
+  "TC-LVL-5.1": ["!LVL.S.C06.Rsp"]
+}
+
